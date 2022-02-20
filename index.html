@@ -15,26 +15,50 @@
         input {
             border: rgb(17, 226, 181) solid 2px;
             height: 20px;
-            width: 308px;
+            width: 300px;
         }
 
-        button {
+        .btn button {
             padding: 5px;
             border: rgb(17, 206, 231) solid 1px;
             background-color: rgb(179, 240, 164);
-
-
+            display: block;
+                flex-grow: 1;
+                margin: 0 5px;
+        }
+        .btn {
+            display: flex;
+            width: 50%;
+            margin: 0 auto;
+        }
+        @media  screen and (max-width:768px) {
+            .btn{
+                width: 90%;
+                
+            }
+            input{
+                width: 80%;
+            }
+            
         }
 
-        #btn4 {
-            background-color: red;
+        #btn4:hover {
+            background-color: rgb(255, 0, 0);
         }
-
+        #btn1:hover,#btn2:hover,#btn3:hover{
+            background-color:rgb(25, 218, 19)
+        }
         .show {
             display: flex;
+            
             margin: 20px auto;
             width: 90%;
             background: #fff;
+        }
+        @media screen and (max-width:768px) {
+            .show {
+                flex-wrap: wrap;
+            }
         }
 
         li {
@@ -63,9 +87,10 @@
         }
 
         ul {
-            width: 10%;
+            width: 20%;
             flex-grow: 1;
         }
+
 
         .h0 li {
             background-color: rgb(188, 250, 173);
@@ -152,10 +177,12 @@
         <input id="val" type="text" />
         <br />
         <br />
-        <button id="btn1">提交数据</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="btn2">刷新数据</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="btn3">重新输入</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button id="btn4">清除数据</button>
+        <div class="btn">
+            <button id="btn1">提交数据</button>
+            <button id="btn2">刷新数据</button>
+            <button id="btn3">重新输入</button>
+            <button id="btn4">清除数据</button>
+        </div>
     </div>
 
     <div class="show">
@@ -224,8 +251,8 @@
             <li id="m48">0XX8</li>
             <li id="m49">0XX9</li>
         </ul>
-    </div >
-    <div class="show">
+        <!-- </div >
+    <div class="show"> -->
         <ul class="h5">
             <li class="liHead">5头</li>
             <li id="m50">0XX0</li>
