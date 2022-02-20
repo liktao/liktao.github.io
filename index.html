@@ -11,11 +11,13 @@
             margin: 0;
             padding: 0;
         }
-        input{
+
+        input {
             border: rgb(17, 226, 181) solid 2px;
             height: 20px;
             width: 308px;
         }
+
         button {
             padding: 5px;
             border: rgb(17, 206, 231) solid 1px;
@@ -23,7 +25,8 @@
 
 
         }
-        #btn4{
+
+        #btn4 {
             background-color: red;
         }
 
@@ -45,12 +48,15 @@
             color: rgb(14, 12, 11);
             margin: 10px 5px;
         }
-        li:hover{
-            box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        li:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
-        span{
+
+        span {
             color: rgb(9, 97, 212);
         }
+
         .ipt {
             margin: 10px auto;
             text-align: center;
@@ -61,43 +67,50 @@
             flex-grow: 1;
         }
 
-        .h0 li{
+        .h0 li {
             background-color: rgb(188, 250, 173);
         }
 
-        .h1 li{
+        .h1 li {
             background-color: antiquewhite;
         }
 
-        .h2 li{
+        .h2 li {
             background-color: rgb(141, 235, 235);
         }
 
-        .h3 li{
+        .h3 li {
             background-color: rgb(233, 202, 202);
         }
-        .h4 li{
+
+        .h4 li {
             background-color: rgb(143, 229, 191);
 
         }
-        .h5 li{
+
+        .h5 li {
             background: rgb(226, 207, 144);
         }
-        .h6 li{
+
+        .h6 li {
             background: rgb(233, 191, 236);
         }
-        .h7 li{
+
+        .h7 li {
             background: rgb(217, 226, 176);
         }
-        .h8 li{
+
+        .h8 li {
             background: rgb(227, 213, 228);
         }
-        .h9 li{
+
+        .h9 li {
             background: rgb(191, 236, 234);
         }
-        .liHead{
+
+        .liHead {
             line-height: 50px;
-            color:rgb(233, 31, 17);
+            color: rgb(233, 31, 17);
             font-size: 20px;
         }
     </style>
@@ -108,7 +121,7 @@
 
         头
         <input id="start" type="text" />
-        <br/>
+        <br />
         <!-- <input class="start" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
         <input class="start" type="checkbox" value=1 />&nbsp;1&nbsp;&nbsp;
         <input class="start" type="checkbox" value=2 />&nbsp;2&nbsp;&nbsp;
@@ -123,7 +136,7 @@
 
         尾
         <input type="text" id="end" />
-        <br/>
+        <br />
         <!-- <input class="end" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
         <input class="end" type="checkbox" value=1 />&nbsp;1&nbsp;&nbsp;
         <input class="end" type="checkbox" value=2 />&nbsp;2&nbsp;&nbsp;
@@ -211,6 +224,8 @@
             <li id="m48">0XX8</li>
             <li id="m49">0XX9</li>
         </ul>
+    </div >
+    <div class="show">
         <ul class="h5">
             <li class="liHead">5头</li>
             <li id="m50">0XX0</li>
@@ -280,9 +295,8 @@
 
     <script>
 
-        
         //存背景颜色
-        var bg = ['rgb(188, 250, 173)','antiquewhite','rgb(141, 235, 235)','rgb(233, 202, 202)','rgb(143, 229, 191)','rgb(226, 207, 144)','rgb(233, 191, 236)','rgb(217, 226, 176)','rgb(227, 213, 228)','rgb(191, 236, 234)']
+        var bg = ['rgb(188, 250, 173)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
 
         //刷新数据
         reShow()
@@ -316,7 +330,7 @@
         var btn4 = document.getElementById("btn4");
 
         //判断是否有旧数据
-        if(now!= day){
+        if (now != day) {
             btn1.disabled = true
             btn2.disabled = true
             btn3.disabled = true
@@ -350,7 +364,7 @@
             btn1.disabled = false
             btn2.disabled = false
             btn3.disabled = false
-            localStorage.setItem('day',now)
+            localStorage.setItem('day', now)
             reShow()
             alert("清除成功")
         }
@@ -375,12 +389,12 @@
                     var str = i + 'XX' + j
                     var obj = document.getElementById('m' + i + j)
                     var value = localStorage.getItem(str);
-                    if (parseInt(value) >= 1000) { 
+                    if (parseInt(value) >= 1000) {
                         obj.style.backgroundColor = 'rgb(223, 45, 13)';
-                    }else obj.style.backgroundColor = bg[i];
+                    } else obj.style.backgroundColor = bg[i];
                     if (value) {
-                        obj.innerHTML = str + '<br/>' + '<span>'+value+'</span>'
-                    } else obj.innerHTML = str + '<br/>' +  '<span>'+0+'</span>'
+                        obj.innerHTML = str + '<br/>' + '<span>' + value + '</span>'
+                    } else obj.innerHTML = str + '<br/>' + '<span>' + 0 + '</span>'
                 }
             }
         }
