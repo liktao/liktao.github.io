@@ -23,6 +23,11 @@
             left:50%;/* 相对根元素定位 */
             
         }
+        @media  screen and (max-width:768px) {
+            .ipt{
+                width: 70%;
+            }
+        }
         .ipt:hover{
             box-shadow: none;
         }
@@ -63,7 +68,7 @@
     <button id="reset">重置</button>
 </div>
     <script>
-        var user = [{userName:'yxq',password:'123456'},{userName:'lct',password:'123456'}];
+        var user = [{userName:'yxq',password:'888'},{userName:'lct',password:'888'}];
         var us = document.getElementById("user")
         var ps = document.getElementById("psw")
 
