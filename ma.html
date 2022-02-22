@@ -14,27 +14,61 @@
             padding: 0;
         }
 
+        body {
+            background: rgb(226, 240, 232);
+        }
+
+        /* input {
+            border: rgb(65, 197, 180) solid 1px;
+            border-radius: 6px;
+            height: 30px;
+            width: 400px;
+            padding-left:10px; 
+        } */
+        input {
+            /* border: 1px solid #ccc; */
+            padding: 4px 0px;
+            border-radius: 7px;
+            padding-left: 5px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+        }
+
+        input:focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(46, 110, 230, 0.6)
+        }
+
         input {
             border: rgb(65, 197, 180) solid 1px;
-            border-radius: 5px;
-            height: 30px;
-            width: 300px;
+            border-radius: 3px;
+            height: 25px;
+            width: 400px;
+            padding-left: 10px;
         }
 
         .btn button {
             padding: 5px;
             border: rgb(17, 206, 231) solid 0px;
 
-            background-color: rgb(248, 193, 171);
+            background-color: #a5eba2;
             display: block;
             flex-grow: 1;
             margin: 0 5px;
+            height: 35px;
+            border-radius: 3px;
         }
 
         .btn {
             display: flex;
             width: 50%;
             margin: 0 auto;
+            /* background-color: #fff; */
         }
 
         @media screen and (max-width:768px) {
@@ -42,9 +76,11 @@
                 width: 90%;
 
             }
-
-            input {
-                width: 86%;
+            .btn button{
+                width: 50%;
+            }
+            .ipt input {
+                width: 93.5%;
             }
 
         }
@@ -57,7 +93,7 @@
         #btn1:hover,
         #btn2:hover,
         #btn3:hover {
-            background-color: rgb(25, 218, 19);
+            background-color: rgb(203, 228, 64);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
@@ -66,7 +102,7 @@
 
             margin: 10px auto;
             width: 90%;
-            background: #fff;
+            /* background: rgb(180, 233, 202); */
         }
 
         @media screen and (max-width:768px) {
@@ -74,10 +110,7 @@
                 flex-wrap: wrap;
             }
 
-            .ps {
-                /* background-color: antiquewhite; */
-                padding: 0px 20px;
-            }
+        
         }
 
         li {
@@ -98,22 +131,38 @@
         }
 
         span {
-            color: rgb(9, 97, 212);
+            color: rgb(20, 172, 146);
         }
 
         .ipt {
+            width: 90%;
             margin: 20px auto;
+            padding: 0px 9px;
             text-align: center;
+            /* //background: rgb(180, 233, 202); */
         }
 
         ul {
             width: 20%;
             flex-grow: 1;
         }
-        .ps{
+
+        .ps strong {
             color: rgb(236, 76, 76);
+
         }
 
+        .ps {
+            text-align: justify;
+            margin: 0 auto;
+            width:90%;
+            /* background-color: #fff; */
+            margin-bottom: 100px;
+            
+        }
+        .ps p{
+            padding: 0 5px;
+        }
 
         /* .h0 li {
     background-color: rgb(211, 245, 202);
@@ -161,9 +210,9 @@
 
         ul .liHead {
             line-height: 50px;
-            color: rgb(247, 243, 243);
+            color: rgb(10, 10, 10);
             font-size: 20px;
-            background-color: rgb(235, 114, 59);
+            background-color: rgb(165, 241, 149);
         }
     </style>
 </head>
@@ -205,19 +254,14 @@
         <input id="val" type="text" value="组" onfocus="if (value =='组'){value =''}"
             onblur="if (value ==''){value='组'}" />
         <br />
-        <br />
-        <div class="ps">
-            输入说明：头尾不能输入重复数字，而且只能输入数字。组数不能以0开头。
-        </div>
-
-        <br />
-        <div class="btn">
-            <button id="btn1">提交数据</button>
-            <button id="btn2">刷新数据</button>
-            <button id="btn3">重新输入</button>
-            <button id="btn4">清除数据</button>
-        </div>
     </div>
+    <div class="btn">
+        <button id="btn1">提交数据</button>
+        <button id="btn2">刷新数据</button>
+        <button id="btn3">重新输入</button>
+        <button id="btn4">清除数据</button>
+    </div>
+
 
     <div class="show">
         <ul class="h0">
@@ -353,12 +397,14 @@
             <li id="m99">0XX9</li>
         </ul>
     </div>
-
+    <div class="ps">
+        <p><strong>使用说明：</strong>头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。</p>
+    </div>
     <script>
 
         //存背景颜色
-        var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
-
+        //var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
+        var bg = '#fff'
         //刷新数据
         reShow()
 
@@ -429,7 +475,7 @@
 
         //清除数据
         btn4.onclick = function () {
-            if (confirm("是否确定删除所有保存数据!!!!!?")) {
+            if (confirm("是否删除所有保存数据?")) {
                 deSelect()
                 localStorage.clear();
                 btn1.disabled = false
@@ -467,7 +513,7 @@
                     var value = localStorage.getItem(str);
                     if (parseInt(value) >= 1000) {
                         obj.style.backgroundColor = 'rgb(223, 45, 13)';
-                    } else obj.style.backgroundColor = bg[i];
+                    } else obj.style.backgroundColor = bg;
                     if (value) {
                         obj.innerHTML = str + '<br/>' + '<span>' + value + '</span>'
                     } else obj.innerHTML = str + '<br/>' + '<span>' + 0 + '</span>'
