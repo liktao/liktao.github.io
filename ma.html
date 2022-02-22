@@ -92,8 +92,9 @@
 
         #btn1:hover,
         #btn2:hover,
-        #btn3:hover {
-            background-color: rgb(203, 228, 64);
+        #btn3:hover,
+        #btn5:hover {
+            background-color: rgb(216, 236, 99);
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
@@ -131,7 +132,7 @@
         }
 
         span {
-            color: rgb(20, 172, 146);
+            color: rgb(10, 202, 26);
         }
 
         .ipt {
@@ -143,7 +144,7 @@
         }
 
         ul {
-            width: 20%;
+            width: 25%;
             flex-grow: 1;
         }
 
@@ -213,6 +214,7 @@
             color: rgb(10, 10, 10);
             font-size: 20px;
             background-color: rgb(165, 241, 149);
+            /* background: rgb(228, 104, 100); */
         }
     </style>
 </head>
@@ -256,10 +258,11 @@
         <br />
     </div>
     <div class="btn">
-        <button id="btn1">提交数据</button>
-        <button id="btn2">刷新数据</button>
-        <button id="btn3">重新输入</button>
-        <button id="btn4">清除数据</button>
+        <button id="btn1">提交</button>
+        <button id="btn2">刷新</button>
+        <button id="btn3">重新</button>
+        <button id="btn4">清除</button>
+        <button id="btn5">切换</button>
     </div>
 
 
@@ -436,6 +439,12 @@
         //获取清除按钮
         var btn4 = document.getElementById("btn4");
 
+        //获取切换按钮
+        var btn5 = document.getElementById("btn5")
+
+        //获取ul元素
+        var ul = document.getElementsByTagName('ul')
+
         //判断是否有旧数据
         if (now != day) {
             btn1.disabled = true
@@ -504,6 +513,17 @@
             btn1.disabled = false
         }
 
+        //切换显示
+        var index = 0
+        btn5.onclick = function(){
+            //ul宽度
+            var width = ['10%','20%','25%','30%','50%','100%']
+            for(var i=0;i<ul.length;i++){
+                ul[i].style.width = width[index]
+            }
+            index = (index+1)%(width.length)
+        }
+
         //刷新数据
         function reShow() {
             for (var i = 0; i < 10; i++) {
@@ -512,7 +532,7 @@
                     var obj = document.getElementById('m' + i + j)
                     var value = localStorage.getItem(str);
                     if (parseInt(value) >= 1000) {
-                        obj.style.backgroundColor = 'rgb(223, 45, 13)';
+                        obj.style.backgroundColor = 'rgb(228, 104, 100)';
                     } else obj.style.backgroundColor = bg;
                     if (value) {
                         obj.innerHTML = str + '<br/>' + '<span>' + value + '</span>'
