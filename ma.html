@@ -121,7 +121,7 @@
 
             height: 50px;
             line-height: 25px;
-            /* background-color: rgb(168, 207, 240); */
+            background-color: #fff;
             text-align: center;
             /* border: rgb(181, 209, 162) solid 1px; */
             border-radius: 6px;
@@ -217,10 +217,30 @@
             background-color: rgb(165, 241, 149);
             /* background: rgb(228, 104, 100); */
         }
+
+        .head {
+            width: 90%;
+            padding-right: 7.5px;
+            text-align: right;
+            /* background-color: #66afe9; */
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        .head a {
+            text-decoration: none;
+            color: rgb(19, 182, 204);
+        }
+        .head a:hover{
+            color: rgb(207, 42, 42);
+        }
     </style>
 </head>
 
 <body>
+    <div class="head">
+        <p id="login"></p>
+    </div>
     <div class='ipt'>
 
         <input id="start" type="text" value="头" onfocus="if (value =='头'){value =''}"
@@ -404,11 +424,11 @@
     <div class="ps">
         <p><strong>使用说明：</strong>头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。</p>
     </div>
+    <script src="js/login.js"></script>
     <script>
-        alert("使用说明：头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。")
+        var logined = localStorage.getItem('logined')
+        var login = document.getElementById("login")
 
-        //存背景颜色
-        //var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
         var bg = '#fff'
         //刷新数据
         reShow()
@@ -447,6 +467,34 @@
         //获取ul元素
         var ul = document.getElementsByTagName('ul')
 
+
+        //存背景颜色
+        //var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
+        //alert("使用说明：头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。")
+
+        //判断是否登录
+        if (logined == '0') {
+            login.innerHTML = "<a href='index.html'>未登录，返回登录</a>"
+            btn1.disabled = true
+            btn2.disabled = true
+            btn3.disabled = true
+            btn4.disabled = true
+            btn5.disabled = true
+            iptS.disabled = true
+            iptE.disabled = true
+            gVal.disabled = true
+        } else if (logined == '1') {
+            login.innerHTML = "<a href='index.html'>已登录，退出登录</a>"
+            btn1.disabled = false
+            btn2.disabled = false
+            btn3.disabled = false
+            btn4.disabled = false
+            btn5.disabled = false
+            iptS.disabled = false
+            iptE.disabled = false
+            gVal.disabled = false
+            
+        }
         //判断是否有旧数据
         if (now != day) {
             btn1.disabled = true
@@ -479,9 +527,9 @@
 
                 reShow()
                 deSelect()
-                alert("提交成功！")
+                alert("提交成功!")
 
-            } else alert("输入错误！")
+            } else alert("输入错误!")
         }
 
         //清除数据
@@ -497,16 +545,19 @@
                 //存起当日日期--周几
                 localStorage.setItem('day', now)
 
+                //保存登录状态
+                localStorage.setItem('logined', '1')
+
                 //更新数据
                 reShow()
-                alert("清除成功")
+                alert("清除成功!")
             }
         }
 
         //刷新数据
         btn2.onclick = function () {
             reShow()
-            alert('刷新成功')
+            alert('刷新成功!')
         }
 
         //重新输入
@@ -520,8 +571,8 @@
         var index = 2
         btn5.onclick = function () {
             //ul宽度
-            var width = ['15%','20%', '25%', '30%', '50%', '100%']
-            for (var i = 0 ; i < ul.length ; i++) {
+            var width = ['15%', '20%', '25%', '30%', '50%', '100%']
+            for (var i = 0; i < ul.length; i++) {
                 ul[i].style.width = width[index]
             }
             index = (index + 1) % (width.length)
@@ -550,6 +601,7 @@
             iptE.value = '尾'
             iptS.value = '头'
         }
+
     </script>
 </body>
 
