@@ -1,173 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>统计页</title>
     <link rel="icon" href="logo/ic.png" />
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        body {
-            background: rgb(226, 240, 232);
-        }
+      body {
+        background: rgb(226, 240, 232);
+      }
 
-        /* input {
+      /* input {
             border: rgb(65, 197, 180) solid 1px;
             border-radius: 6px;
             height: 30px;
             width: 400px;
             padding-left:10px; 
         } */
-        input {
-            /* border: 1px solid #ccc; */
-            padding: 4px 0px;
-            border-radius: 7px;
-            padding-left: 5px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-            -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-            -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-            transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
-        }
+      input {
+        /* border: 1px solid #ccc; */
+        padding: 4px 0px;
+        border-radius: 7px;
+        padding-left: 5px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s,
+          -webkit-box-shadow ease-in-out 0.15s;
+        -o-transition: border-color ease-in-out 0.15s,
+          box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      }
 
-        input:focus {
-            border-color: #66afe9;
-            outline: 0;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(46, 110, 230, 0.6)
-        }
+      input:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+          0 0 8px rgba(46, 110, 230, 0.6);
+      }
 
-        input {
-            border: rgb(65, 197, 180) solid 1px;
-            border-radius: 3px;
-            height: 25px;
-            width: 400px;
-            padding-left: 10px;
+      input {
+        border: rgb(65, 197, 180) solid 1px;
+        border-radius: 3px;
+        height: 25px;
+        width: 400px;
+        padding-left: 10px;
+      }
+
+      .btn button {
+        padding: 5px;
+        border: rgb(17, 206, 231) solid 0px;
+
+        background-color: #a5eba2;
+        display: block;
+        flex-grow: 1;
+        margin: 0 5px;
+        height: 35px;
+        border-radius: 3px;
+      }
+
+      .btn {
+        display: flex;
+        width: 50%;
+        margin: 0 auto;
+        /* background-color: #fff; */
+      }
+
+      @media screen and (max-width: 768px) {
+        .btn {
+          width: 90%;
         }
 
         .btn button {
-            padding: 5px;
-            border: rgb(17, 206, 231) solid 0px;
-
-            background-color: #a5eba2;
-            display: block;
-            flex-grow: 1;
-            margin: 0 5px;
-            height: 35px;
-            border-radius: 3px;
+          width: 50%;
         }
 
-        .btn {
-            display: flex;
-            width: 50%;
-            margin: 0 auto;
-            /* background-color: #fff; */
+        .ipt input {
+          width: 93.5%;
         }
+      }
 
-        @media screen and (max-width:768px) {
-            .btn {
-                width: 90%;
+      #btn4:hover {
+        background-color: rgb(255, 0, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
 
-            }
+      #btn1:hover,
+      #btn2:hover,
+      #btn3:hover,
+      #btn5:hover {
+        background-color: rgb(216, 236, 99);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
 
-            .btn button {
-                width: 50%;
-            }
+      .show {
+        display: flex;
 
-            .ipt input {
-                width: 93.5%;
-            }
+        margin: 10px auto;
+        width: 90%;
+        /* background: rgb(180, 233, 202); */
+      }
 
-        }
-
-        #btn4:hover {
-            background-color: rgb(255, 0, 0);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
-        #btn1:hover,
-        #btn2:hover,
-        #btn3:hover,
-        #btn5:hover {
-            background-color: rgb(216, 236, 99);
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-
+      @media screen and (max-width: 768px) {
         .show {
-            display: flex;
-
-            margin: 10px auto;
-            width: 90%;
-            /* background: rgb(180, 233, 202); */
+          flex-wrap: wrap;
         }
+      }
 
-        @media screen and (max-width:768px) {
-            .show {
-                flex-wrap: wrap;
-            }
+      li {
+        list-style: none;
 
+        height: 50px;
+        line-height: 25px;
+        background-color: #fff;
+        text-align: center;
+        /* border: rgb(181, 209, 162) solid 1px; */
+        border-radius: 6px;
+        color: rgb(14, 12, 11);
+        margin: 10px 5px;
+      }
 
-        }
+      li:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
 
-        li {
-            list-style: none;
+      span {
+        color: rgb(10, 202, 26);
+      }
 
-            height: 50px;
-            line-height: 25px;
-            background-color: #fff;
-            text-align: center;
-            /* border: rgb(181, 209, 162) solid 1px; */
-            border-radius: 6px;
-            color: rgb(14, 12, 11);
-            margin: 10px 5px;
-        }
+      .ipt {
+        width: 90%;
+        margin: 20px auto;
+        padding: 0px 9px;
+        text-align: center;
+        /* //background: rgb(180, 233, 202); */
+      }
 
-        li:hover {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
+      ul {
+        width: 20%;
+        flex-grow: 1;
+      }
 
-        span {
-            color: rgb(10, 202, 26);
-        }
+      .ps strong {
+        color: rgb(236, 76, 76);
+      }
 
-        .ipt {
-            width: 90%;
-            margin: 20px auto;
-            padding: 0px 9px;
-            text-align: center;
-            /* //background: rgb(180, 233, 202); */
-        }
+      .ps {
+        text-align: justify;
+        margin: 0 auto;
+        width: 90%;
+        /* background-color: #fff; */
+        margin-bottom: 100px;
+      }
 
-        ul {
-            width: 20%;
-            flex-grow: 1;
-        }
+      .ps p {
+        padding: 0 5px;
+      }
 
-        .ps strong {
-            color: rgb(236, 76, 76);
-        }
-
-        .ps {
-            text-align: justify;
-            margin: 0 auto;
-            width: 90%;
-            /* background-color: #fff; */
-            margin-bottom: 100px;
-        }
-
-        .ps p {
-            padding: 0 5px;
-        }
-
-        /* .h0 li {
+      /* .h0 li {
     background-color: rgb(211, 245, 202);
     
 }
@@ -211,44 +213,48 @@
 } 
 */
 
-        ul .liHead {
-            line-height: 50px;
-            color: rgb(10, 10, 10);
-            font-size: 20px;
-            background-color: rgb(165, 241, 149);
-            /* background: rgb(228, 104, 100); */
-        }
+      ul .liHead {
+        line-height: 50px;
+        color: rgb(10, 10, 10);
+        font-size: 20px;
+        background-color: rgb(165, 241, 149);
+        /* background: rgb(228, 104, 100); */
+      }
 
-        .head {
-            width: 90%;
-            padding-right: 7.5px;
-            text-align: right;
-            /* background-color: #66afe9; */
-            margin: 0 auto;
-            margin-top: 15px;
-        }
+      .head {
+        width: 90%;
+        padding-right: 7.5px;
+        text-align: right;
+        /* background-color: #66afe9; */
+        margin: 0 auto;
+        margin-top: 15px;
+      }
 
-        .head a {
-            text-decoration: none;
-            color: rgb(19, 182, 204);
-        }
+      .head a {
+        text-decoration: none;
+        color: rgb(19, 182, 204);
+      }
 
-        .head a:hover {
-            color: rgb(207, 42, 42);
-        }
+      .head a:hover {
+        color: rgb(207, 42, 42);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="head">
-        <p id="login"></p>
+      <p id="login"></p>
     </div>
-    <div class='ipt'>
-
-        <input id="start" type="text" value="头" onfocus="if (value =='头'){value =''}"
-            onblur="if (value ==''){value='头'}" />
-        <br />
-        <!-- <input class="start" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
+    <div class="ipt">
+      <input
+        id="start"
+        type="text"
+        value="头"
+        onfocus="if (value =='头'){value =''}"
+        onblur="if (value ==''){value='头'}"
+      />
+      <br />
+      <!-- <input class="start" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
         <input class="start" type="checkbox" value=1 />&nbsp;1&nbsp;&nbsp;
         <input class="start" type="checkbox" value=2 />&nbsp;2&nbsp;&nbsp;
         <input class="start" type="checkbox" value=3 />&nbsp;3&nbsp;&nbsp;
@@ -258,13 +264,17 @@
         <input class="start" type="checkbox" value=7 />&nbsp;7&nbsp;&nbsp;
         <input class="start" type="checkbox" value=8 />&nbsp;8&nbsp;&nbsp;
         <input class="start" type="checkbox" value=9 />&nbsp;9&nbsp;&nbsp; -->
-        <br />
+      <br />
 
-
-        <input type="text" id="end" value="尾" onfocus="if (value =='尾'){value =''}"
-            onblur="if (value ==''){value='尾'}" />
-        <br />
-        <!-- <input class="end" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
+      <input
+        type="text"
+        id="end"
+        value="尾"
+        onfocus="if (value =='尾'){value =''}"
+        onblur="if (value ==''){value='尾'}"
+      />
+      <br />
+      <!-- <input class="end" type="checkbox" value=0 />&nbsp;0&nbsp;&nbsp;
         <input class="end" type="checkbox" value=1 />&nbsp;1&nbsp;&nbsp;
         <input class="end" type="checkbox" value=2 />&nbsp;2&nbsp;&nbsp;
         <input class="end" type="checkbox" value=3 />&nbsp;3&nbsp;&nbsp;
@@ -274,342 +284,352 @@
         <input class="end" type="checkbox" value=7 />&nbsp;7&nbsp;&nbsp;
         <input class="end" type="checkbox" value=8 />&nbsp;8&nbsp;&nbsp;
         <input class="end" type="checkbox" value=9 />&nbsp;9&nbsp;&nbsp; -->
-        <br />
+      <br />
 
-        <input id="val" type="text" value="组" onfocus="if (value =='组'){value =''}"
-            onblur="if (value ==''){value='组'}" />
-        <br />
+      <input
+        id="val"
+        type="text"
+        value="组"
+        onfocus="if (value =='组'){value =''}"
+        onblur="if (value ==''){value='组'}"
+      />
+      <br />
     </div>
     <div class="btn">
-        <button id="btn1">提交</button>
-        <button id="btn2">刷新</button>
-        <button id="btn3">重置</button>
-        <button id="btn4">清除</button>
-        <button id="btn5">切换</button>
+      <button id="btn1">提交</button>
+      <button id="btn2">刷新</button>
+      <button id="btn3">重置</button>
+      <button id="btn4">清除</button>
+      <button id="btn5">切换</button>
     </div>
-
 
     <div class="show">
-
-        <ul class="h0">
-            <li class="liHead">0头</li>
-            <li id="m00">0XX0</li>
-            <li id="m01">0XX1</li>
-            <li id="m02">0XX2</li>
-            <li id="m03">0XX3</li>
-            <li id="m04">0XX4</li>
-            <li id="m05">0XX5</li>
-            <li id="m06">0XX6</li>
-            <li id="m07">0XX7</li>
-            <li id="m08">0XX8</li>
-            <li id="m09">0XX9</li>
-        </ul>
-        <ul class="h1">
-            <li class="liHead">1头</li>
-            <li id="m10">0XX0</li>
-            <li id="m11">1XX1</li>
-            <li id="m12">0XX2</li>
-            <li id="m13">0XX3</li>
-            <li id="m14">0XX4</li>
-            <li id="m15">0XX5</li>
-            <li id="m16">0XX6</li>
-            <li id="m17">0XX7</li>
-            <li id="m18">0XX8</li>
-            <li id="m19">0XX9</li>
-        </ul>
-        <ul class="h2">
-            <li class="liHead">2头</li>
-            <li id="m20">0XX0</li>
-            <li id="m21">0XX1</li>
-            <li id="m22">0XX2</li>
-            <li id="m23">0XX3</li>
-            <li id="m24">0XX4</li>
-            <li id="m25">0XX5</li>
-            <li id="m26">0XX6</li>
-            <li id="m27">0XX7</li>
-            <li id="m28">0XX8</li>
-            <li id="m29">0XX9</li>
-        </ul>
-        <ul class="h3">
-            <li class="liHead">3头</li>
-            <li id="m30">0XX0</li>
-            <li id="m31">0XX1</li>
-            <li id="m32">0XX2</li>
-            <li id="m33">0XX3</li>
-            <li id="m34">0XX4</li>
-            <li id="m35">0XX5</li>
-            <li id="m36">0XX6</li>
-            <li id="m37">0XX7</li>
-            <li id="m38">0XX8</li>
-            <li id="m39">0XX9</li>
-        </ul>
-        <ul class="h4">
-            <li class="liHead">4头</li>
-            <li id="m40">0XX0</li>
-            <li id="m41">0XX1</li>
-            <li id="m42">0XX2</li>
-            <li id="m43">0XX3</li>
-            <li id="m44">0XX4</li>
-            <li id="m45">0XX5</li>
-            <li id="m46">0XX6</li>
-            <li id="m47">0XX7</li>
-            <li id="m48">0XX8</li>
-            <li id="m49">0XX9</li>
-        </ul>
-        <!-- </div >
+      <ul class="h0">
+        <li class="liHead">0头</li>
+        <li id="m00">0XX0</li>
+        <li id="m01">0XX1</li>
+        <li id="m02">0XX2</li>
+        <li id="m03">0XX3</li>
+        <li id="m04">0XX4</li>
+        <li id="m05">0XX5</li>
+        <li id="m06">0XX6</li>
+        <li id="m07">0XX7</li>
+        <li id="m08">0XX8</li>
+        <li id="m09">0XX9</li>
+      </ul>
+      <ul class="h1">
+        <li class="liHead">1头</li>
+        <li id="m10">0XX0</li>
+        <li id="m11">1XX1</li>
+        <li id="m12">0XX2</li>
+        <li id="m13">0XX3</li>
+        <li id="m14">0XX4</li>
+        <li id="m15">0XX5</li>
+        <li id="m16">0XX6</li>
+        <li id="m17">0XX7</li>
+        <li id="m18">0XX8</li>
+        <li id="m19">0XX9</li>
+      </ul>
+      <ul class="h2">
+        <li class="liHead">2头</li>
+        <li id="m20">0XX0</li>
+        <li id="m21">0XX1</li>
+        <li id="m22">0XX2</li>
+        <li id="m23">0XX3</li>
+        <li id="m24">0XX4</li>
+        <li id="m25">0XX5</li>
+        <li id="m26">0XX6</li>
+        <li id="m27">0XX7</li>
+        <li id="m28">0XX8</li>
+        <li id="m29">0XX9</li>
+      </ul>
+      <ul class="h3">
+        <li class="liHead">3头</li>
+        <li id="m30">0XX0</li>
+        <li id="m31">0XX1</li>
+        <li id="m32">0XX2</li>
+        <li id="m33">0XX3</li>
+        <li id="m34">0XX4</li>
+        <li id="m35">0XX5</li>
+        <li id="m36">0XX6</li>
+        <li id="m37">0XX7</li>
+        <li id="m38">0XX8</li>
+        <li id="m39">0XX9</li>
+      </ul>
+      <ul class="h4">
+        <li class="liHead">4头</li>
+        <li id="m40">0XX0</li>
+        <li id="m41">0XX1</li>
+        <li id="m42">0XX2</li>
+        <li id="m43">0XX3</li>
+        <li id="m44">0XX4</li>
+        <li id="m45">0XX5</li>
+        <li id="m46">0XX6</li>
+        <li id="m47">0XX7</li>
+        <li id="m48">0XX8</li>
+        <li id="m49">0XX9</li>
+      </ul>
+      <!-- </div >
     <div class="show"> -->
-        <ul class="h5">
-            <li class="liHead">5头</li>
-            <li id="m50">0XX0</li>
-            <li id="m51">0XX1</li>
-            <li id="m52">0XX2</li>
-            <li id="m53">0XX3</li>
-            <li id="m54">0XX4</li>
-            <li id="m55">0XX5</li>
-            <li id="m56">0XX6</li>
-            <li id="m57">0XX7</li>
-            <li id="m58">0XX8</li>
-            <li id="m59">0XX9</li>
-        </ul>
-        <ul class="h6">
-            <li class="liHead">6头</li>
-            <li id="m60">0XX0</li>
-            <li id="m61">0XX1</li>
-            <li id="m62">0XX2</li>
-            <li id="m63">0XX3</li>
-            <li id="m64">0XX4</li>
-            <li id="m65">0XX5</li>
-            <li id="m66">0XX6</li>
-            <li id="m67">0XX7</li>
-            <li id="m68">0XX8</li>
-            <li id="m69">0XX9</li>
-        </ul>
-        <ul class="h7">
-            <li class="liHead">7头</li>
-            <li id="m70">0XX0</li>
-            <li id="m71">0XX1</li>
-            <li id="m72">0XX2</li>
-            <li id="m73">0XX3</li>
-            <li id="m74">0XX4</li>
-            <li id="m75">0XX5</li>
-            <li id="m76">0XX6</li>
-            <li id="m77">0XX7</li>
-            <li id="m78">0XX8</li>
-            <li id="m79">0XX9</li>
-        </ul>
-        <ul class="h8">
-            <li class="liHead">8头</li>
-            <li id="m80">0XX0</li>
-            <li id="m81">0XX1</li>
-            <li id="m82">0XX2</li>
-            <li id="m83">0XX3</li>
-            <li id="m84">0XX4</li>
-            <li id="m85">0XX5</li>
-            <li id="m86">0XX6</li>
-            <li id="m87">0XX7</li>
-            <li id="m88">0XX8</li>
-            <li id="m89">0XX9</li>
-        </ul>
-        <ul class="h9">
-            <li class="liHead">9头</li>
-            <li id="m90">0XX0</li>
-            <li id="m91">0XX1</li>
-            <li id="m92">0XX2</li>
-            <li id="m93">0XX3</li>
-            <li id="m94">0XX4</li>
-            <li id="m95">0XX5</li>
-            <li id="m96">0XX6</li>
-            <li id="m97">0XX7</li>
-            <li id="m98">0XX8</li>
-            <li id="m99">0XX9</li>
-        </ul>
+      <ul class="h5">
+        <li class="liHead">5头</li>
+        <li id="m50">0XX0</li>
+        <li id="m51">0XX1</li>
+        <li id="m52">0XX2</li>
+        <li id="m53">0XX3</li>
+        <li id="m54">0XX4</li>
+        <li id="m55">0XX5</li>
+        <li id="m56">0XX6</li>
+        <li id="m57">0XX7</li>
+        <li id="m58">0XX8</li>
+        <li id="m59">0XX9</li>
+      </ul>
+      <ul class="h6">
+        <li class="liHead">6头</li>
+        <li id="m60">0XX0</li>
+        <li id="m61">0XX1</li>
+        <li id="m62">0XX2</li>
+        <li id="m63">0XX3</li>
+        <li id="m64">0XX4</li>
+        <li id="m65">0XX5</li>
+        <li id="m66">0XX6</li>
+        <li id="m67">0XX7</li>
+        <li id="m68">0XX8</li>
+        <li id="m69">0XX9</li>
+      </ul>
+      <ul class="h7">
+        <li class="liHead">7头</li>
+        <li id="m70">0XX0</li>
+        <li id="m71">0XX1</li>
+        <li id="m72">0XX2</li>
+        <li id="m73">0XX3</li>
+        <li id="m74">0XX4</li>
+        <li id="m75">0XX5</li>
+        <li id="m76">0XX6</li>
+        <li id="m77">0XX7</li>
+        <li id="m78">0XX8</li>
+        <li id="m79">0XX9</li>
+      </ul>
+      <ul class="h8">
+        <li class="liHead">8头</li>
+        <li id="m80">0XX0</li>
+        <li id="m81">0XX1</li>
+        <li id="m82">0XX2</li>
+        <li id="m83">0XX3</li>
+        <li id="m84">0XX4</li>
+        <li id="m85">0XX5</li>
+        <li id="m86">0XX6</li>
+        <li id="m87">0XX7</li>
+        <li id="m88">0XX8</li>
+        <li id="m89">0XX9</li>
+      </ul>
+      <ul class="h9">
+        <li class="liHead">9头</li>
+        <li id="m90">0XX0</li>
+        <li id="m91">0XX1</li>
+        <li id="m92">0XX2</li>
+        <li id="m93">0XX3</li>
+        <li id="m94">0XX4</li>
+        <li id="m95">0XX5</li>
+        <li id="m96">0XX6</li>
+        <li id="m97">0XX7</li>
+        <li id="m98">0XX8</li>
+        <li id="m99">0XX9</li>
+      </ul>
     </div>
     <div class="ps">
-        <p><strong>使用说明：</strong>头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。</p>
+      <p>
+        <strong>使用说明：</strong
+        >头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。
+      </p>
     </div>
 
     <script src="js/login.js"></script>
     <script>
-        var logined = localStorage.getItem('logined')
-        var login = document.getElementById("login")
+      var logined = localStorage.getItem("logined");
+      var login = document.getElementById("login");
 
-        var bg = '#fff'
-        //刷新数据
-        reShow()
+      var bg = "#fff";
+      //刷新数据
+      reShow();
 
-        //获取当前日期--周几
-        var nowTime = new Date()
-        var now = nowTime.getDay() + ''
-        //获取当前时间之前的时间
-        var day = localStorage.getItem('day')
-        // console.log(now.getDay())
+      //获取当前日期--周几
+      var nowTime = new Date();
+      var now = nowTime.getDay() + "";
+      //获取当前时间之前的时间
+      var day = localStorage.getItem("day");
+      // console.log(now.getDay())
 
-        //头对象
-        var iptS = document.getElementById("start");
+      //头对象
+      var iptS = document.getElementById("start");
 
-        //尾对象
-        var iptE = document.getElementById("end");
+      //尾对象
+      var iptE = document.getElementById("end");
 
-        //获取组对象
-        var gVal = document.getElementById("val");
+      //获取组对象
+      var gVal = document.getElementById("val");
 
-        //获取输入按钮
-        var btn1 = document.getElementById("btn1");
+      //获取输入按钮
+      var btn1 = document.getElementById("btn1");
 
-        //获取刷新按钮
-        var btn2 = document.getElementById("btn2");
+      //获取刷新按钮
+      var btn2 = document.getElementById("btn2");
 
-        //获取重置按钮
-        var btn3 = document.getElementById("btn3");
+      //获取重置按钮
+      var btn3 = document.getElementById("btn3");
 
-        //获取清除按钮
-        var btn4 = document.getElementById("btn4");
+      //获取清除按钮
+      var btn4 = document.getElementById("btn4");
 
-        //获取切换按钮
-        var btn5 = document.getElementById("btn5")
+      //获取切换按钮
+      var btn5 = document.getElementById("btn5");
 
-        //获取ul元素
-        var ul = document.getElementsByTagName('ul')
+      //获取ul元素
+      var ul = document.getElementsByTagName("ul");
 
+      //存背景颜色
+      //var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
+      //alert("使用说明：头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。")
 
-        //存背景颜色
-        //var bg = ['rgb(211, 245, 202)', 'antiquewhite', 'rgb(141, 235, 235)', 'rgb(233, 202, 202)', 'rgb(143, 229, 191)', 'rgb(226, 207, 144)', 'rgb(233, 191, 236)', 'rgb(217, 226, 176)', 'rgb(227, 213, 228)', 'rgb(191, 236, 234)']
-        //alert("使用说明：头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。")
+      //判断是否登录
+      if (logined == "0") {
+        login.innerHTML = "<a href='ma.html'>未登录，请去登录</a>";
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
+        btn4.disabled = true;
+        // btn5.disabled = true
+        // iptS.disabled = true
+        // iptE.disabled = true
+        // gVal.disabled = true
+      } else if (logined == "1") {
+        login.innerHTML = "<a href='ma.html'>已登录，退出登录</a>";
+        btn1.disabled = false;
+        btn2.disabled = false;
+        btn3.disabled = false;
+        btn4.disabled = false;
+        // btn5.disabled = false
+        // iptS.disabled = false
+        // iptE.disabled = false
+        // gVal.disabled = false
+      }
+      //判断是否有旧数据
+      if (now != day) {
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
+      }
+      //else btn4.disabled = true
 
-        //判断是否登录
-        if (logined == '0') {
-            login.innerHTML = "<a href='ma.html'>未登录，请去登录</a>"
-            btn1.disabled = true
-            btn2.disabled = true
-            btn3.disabled = true
-            btn4.disabled = true
-            // btn5.disabled = true
-            // iptS.disabled = true
-            // iptE.disabled = true
-            // gVal.disabled = true
-        } else if (logined == '1') {
-            login.innerHTML = "<a href='ma.html'>已登录，退出登录</a>"
-            btn1.disabled = false
-            btn2.disabled = false
-            btn3.disabled = false
-            btn4.disabled = false
-            // btn5.disabled = false
-            // iptS.disabled = false
-            // iptE.disabled = false
-            // gVal.disabled = false
-
-        }
-        //判断是否有旧数据
-        if (now != day) {
-            btn1.disabled = true
-            btn2.disabled = true
-            btn3.disabled = true
-        }
-        //else btn4.disabled = true
-
-
-        //输入数据
-        btn1.onclick = function () {
-            var reg1 = /[0-9]{1,}/
-            var reg2 = /[1-9][0-9]{0,}/
-            var s = reg1.test(iptS.value), e = reg1.test(iptE.value), g = reg2.test(gVal.value)
-            if (s && e && g) {
-                var iptStart = iptS.value.split("")
-                var iptEnd = iptE.value.split("")
-                //alert(typeof iptEnd[0])
-                var gValue = parseInt(gVal.value)
-                for (var i = 0; i < iptStart.length; i++) {
-                    for (var j = 0; j < iptEnd.length; j++) {
-                        var valueStr = localStorage.getItem(iptStart[i] + 'XX' + iptEnd[j])
-                        var value = parseInt(valueStr)
-                        if (value > 0) {
-                            localStorage.setItem(iptStart[i] + 'XX' + iptEnd[j], value + gValue + '')
-                        } else localStorage.setItem(iptStart[i] + 'XX' + iptEnd[j], gValue + '')
-                    }
-                }
-                //btn1.disabled = true
-
-                reShow()
-                deSelect()
-                alert("提交成功!")
-
-            } else alert("输入错误!")
-        }
-
-        //清除数据
-        btn4.onclick = function () {
-            var cf = confirm("是否删除所有保存数据?")
-            if (cf) {
-                deSelect()
-                localStorage.clear();
-                btn1.disabled = false
-                btn2.disabled = false
-                btn3.disabled = false
-
-                //存起当日日期--周几
-                localStorage.setItem('day', now)
-
-                //保存登录状态
-                localStorage.setItem('logined', '1')
-
-                //更新数据
-                reShow()
-                alert("清除成功!")
+      //输入数据
+      btn1.onclick = function () {
+        var reg1 = /[0-9]{1,}/;
+        var reg2 = /[1-9][0-9]{0,}/;
+        var s = reg1.test(iptS.value),
+          e = reg1.test(iptE.value),
+          g = reg2.test(gVal.value);
+        if (s && e && g) {
+          var iptStart = iptS.value.split("");
+          var iptEnd = iptE.value.split("");
+          //alert(typeof iptEnd[0])
+          var gValue = parseInt(gVal.value);
+          for (var i = 0; i < iptStart.length; i++) {
+            for (var j = 0; j < iptEnd.length; j++) {
+              var valueStr = localStorage.getItem(
+                iptStart[i] + "XX" + iptEnd[j]
+              );
+              var value = parseInt(valueStr);
+              if (value > 0) {
+                localStorage.setItem(
+                  iptStart[i] + "XX" + iptEnd[j],
+                  value + gValue + ""
+                );
+              } else
+                localStorage.setItem(
+                  iptStart[i] + "XX" + iptEnd[j],
+                  gValue + ""
+                );
             }
-        }
+          }
+          //btn1.disabled = true
 
-        //刷新数据
-        btn2.onclick = function () {
-            reShow()
-            alert('刷新成功!')
-        }
+          reShow();
+          deSelect();
+          alert("提交成功!");
+        } else alert("输入错误!");
+      };
 
-        //重新输入
-        btn3.onclick = function () {
-            deSelect()
-            reShow()
-            btn1.disabled = false
-        }
+      //清除数据
+      btn4.onclick = function () {
+        var cf = confirm("是否删除所有保存数据?");
+        if (cf) {
+          deSelect();
+          localStorage.clear();
+          btn1.disabled = false;
+          btn2.disabled = false;
+          btn3.disabled = false;
 
-        //切换显示
-        var index = 2
-        btn5.onclick = function () {
-            //ul宽度
-            var width = ['15%', '20%', '25%', '30%', '50%', '100%']
-            for (var i = 0; i < ul.length; i++) {
-                ul[i].style.width = width[index]
-            }
-            index = (index + 1) % (width.length)
-        }
+          //存起当日日期--周几
+          localStorage.setItem("day", now);
 
-        //刷新数据
-        function reShow() {
-            for (var i = 0; i < 10; i++) {
-                for (let j = 0; j < 10; j++) {
-                    var str = i + 'XX' + j
-                    var obj = document.getElementById('m' + i + j)
-                    var value = localStorage.getItem(str);
-                    if (parseInt(value) >= 1000) {
-                        obj.style.backgroundColor = 'rgb(228, 104, 100)';
-                    } else obj.style.backgroundColor = bg;
-                    if (value) {
-                        obj.innerHTML = str + '<br/>' + '<span>' + value + '</span>'
-                    } else obj.innerHTML = str + '<br/>' + '<span>' + 0 + '</span>'
-                }
-            }
-        }
+          //保存登录状态
+          localStorage.setItem("logined", "1");
 
-        //重新输入
-        function deSelect() {
-            gVal.value = '组'
-            iptE.value = '尾'
-            iptS.value = '头'
+          //更新数据
+          reShow();
+          alert("清除成功!");
         }
+      };
 
+      //刷新数据
+      btn2.onclick = function () {
+        reShow();
+        alert("刷新成功!");
+      };
+
+      //重新输入
+      btn3.onclick = function () {
+        deSelect();
+        reShow();
+        btn1.disabled = false;
+      };
+
+      //切换显示
+      var index = 2;
+      btn5.onclick = function () {
+        //ul宽度
+        var width = ["15%", "20%", "25%", "30%", "50%", "100%"];
+        for (var i = 0; i < ul.length; i++) {
+          ul[i].style.width = width[index];
+        }
+        index = (index + 1) % width.length;
+      };
+
+      //刷新数据
+      function reShow() {
+        for (var i = 0; i < 10; i++) {
+          for (let j = 0; j < 10; j++) {
+            var str = i + "XX" + j;
+            var obj = document.getElementById("m" + i + j);
+            var value = localStorage.getItem(str);
+            if (parseInt(value) >= 1000) {
+              obj.style.backgroundColor = "rgb(228, 104, 100)";
+            } else obj.style.backgroundColor = bg;
+            if (value) {
+              obj.innerHTML = str + "<br/>" + "<span>" + value + "</span>";
+            } else obj.innerHTML = str + "<br/>" + "<span>" + 0 + "</span>";
+          }
+        }
+      }
+
+      //重新输入
+      function deSelect() {
+        gVal.value = "组";
+        iptE.value = "尾";
+        iptS.value = "头";
+      }
     </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-
-</body>
-
+  </body>
 </html>
