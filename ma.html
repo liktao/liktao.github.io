@@ -104,8 +104,8 @@
       localStorage.setItem("logined", "0");
 
       var user = [
-        { userName: "yxq", password: "888" },
-        { userName: "lct", password: "888" },
+        { userName: "yxq", password: "obj" },
+        { userName: "lct", password: "obj" },
       ];
       var us = document.getElementById("user");
       var ps = document.getElementById("psw");
@@ -127,10 +127,7 @@
           if (getSystem() === "iOS") {
             alert("抱歉，不接受iPhone用户使用！");
           } else {
-            //不给登录
-            localStorage.setItem('logined', '1')
-            // localStorage.setItem("logined", "0");
-
+            localStorage.setItem("logined", "1");
             location = "index.html";
             alert("登陆成功！");
           }
