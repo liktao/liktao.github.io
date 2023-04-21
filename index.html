@@ -222,13 +222,13 @@
       }
 
       #than200 {
-        margin:0 5px ;
+        margin: 0 5px;
         padding: 10px;
         background-color: #fff;
         border-radius: 0 0 5px 5px;
       }
       .than {
-        margin:0 5px;
+        margin: 0 5px;
         padding: 10px;
         background-color: #fff;
         border-radius: 5px 5px 0 0;
@@ -396,7 +396,7 @@
     <!-- 大于200组的号码 -->
     <div class="show2">
       <div class="than">
-        <input id ="iptThan" type="number" placeholder="输入大于0的数"  />
+        <input id="iptThan" type="number" placeholder="输入大于0的数" />
 
         <button id="btn6" value="组">筛选</button>
       </div>
@@ -553,7 +553,6 @@
 
         let total = document.getElementById("total");
 
-      
         for (var i = 0; i < 10; i++) {
           for (let j = 0; j < 10; j++) {
             var str = i + "XX" + j;
@@ -568,25 +567,22 @@
           }
         }
 
-      
-         total.innerHTML = "<strong>总数：</strong>" + totalVale;
+        total.innerHTML = "<strong>总数：</strong>" + totalVale;
       }
 
-      btn6.onclick = function(){
-        
-        let iptThan = document.getElementById("iptThan")
-        if(iptThan.value>=0){
-          reShow2(iptThan.value)
+      btn6.onclick = function () {
+        let iptThan = document.getElementById("iptThan");
+        if (iptThan.value >= 0) {
+          reShow2(iptThan.value);
         }
+      };
 
-      }
-
-       function reShow2(than2) {
+      function reShow2(than2) {
         var totalVale = 0;
 
         let total = document.getElementById("total");
 
-        let than200 = []
+        let than200 = [];
 
         for (var i = 0; i < 10; i++) {
           for (let j = 0; j < 10; j++) {
@@ -598,23 +594,35 @@
             if (num > than2) {
               obj.style.backgroundColor = "rgb(228, 104, 100)";
 
-              let liStr = str + " => " + (num-than2);
+              let liStr = str + " > " + (num - than2);
 
               than200.push(liStr);
-              
             } else obj.style.backgroundColor = bg;
-            
           }
         }
 
         let than200Obj = document.getElementById("than200");
 
-        if(than200.length>0)
-        than200Obj.innerHTML =
-          "大于"+than2+"组的号码(不包括"+than2+"): " + "<br/>" + than200;
-else than200Obj.innerHTML =
-          "大于"+than2+"组的号码(不包括"+than2+"): 空空如也！";
-        
+        let than200Str = "";
+
+        if (than200.length > 0) {
+          than200.forEach((value, index) => {
+            than200Str = than200Str + value + "，";
+
+            if((index+1) % 10===0) than200Str+='<br/>'
+
+          });
+          than200Obj.innerHTML =
+            "大于" +
+            than2 +
+            "组的号码(不包括" +
+            than2 +
+            "): " +
+            "<br/>" +
+            than200Str;
+        } else
+          than200Obj.innerHTML =
+            "大于" + than2 + "组的号码(不包括" + than2 + "): 空空如也！";
       }
 
       //重新输入
