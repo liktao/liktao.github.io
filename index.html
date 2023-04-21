@@ -70,6 +70,17 @@
         height: 35px;
         border-radius: 3px;
       }
+      button {
+        padding: 5px;
+        border: rgb(17, 206, 231) solid 0px;
+
+        background-color: #a5eba2;
+        /* display: block; */
+        /* flex-grow: 1; */
+        margin: 0 5px;
+        height: 35px;
+        border-radius: 3px;
+      }
 
       .btn {
         display: flex;
@@ -101,7 +112,8 @@
       #btn1:hover,
       #btn2:hover,
       #btn3:hover,
-      #btn5:hover {
+      #btn5:hover,
+      #btn6:hover {
         background-color: rgb(216, 236, 99);
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
           0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -109,6 +121,13 @@
 
       .show {
         display: flex;
+
+        margin: 10px auto;
+        width: 90%;
+        /* background: rgb(180, 233, 202); */
+      }
+      .show2 {
+        /* display: flex; */
 
         margin: 10px auto;
         width: 90%;
@@ -202,12 +221,17 @@
         color: rgb(207, 42, 42);
       }
 
-
-      #than200{
-        margin: 5px;
+      #than200 {
+        margin:0 5px ;
         padding: 10px;
         background-color: #fff;
-        border-radius: 5px;
+        border-radius: 0 0 5px 5px;
+      }
+      .than {
+        margin:0 5px;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 5px 5px 0 0;
       }
     </style>
   </head>
@@ -217,33 +241,13 @@
       <p id="login"></p>
     </div>
     <div class="ipt">
-      <input
-        id="start"
-        type="text"
-        value="头"
-        onfocus="if (value =='头'){value =''}"
-        onblur="if (value ==''){value='头'}"
-      />
-     
+      <input id="start" type="text" placeholder="头" />
 
-   
+      <input type="text" id="end" placeholder="尾" />
 
-      <input
-        type="text"
-        id="end"
-        value="尾"
-        onfocus="if (value =='尾'){value =''}"
-        onblur="if (value ==''){value='尾'}"
-      />
-    
-      <input
-        id="val"
-        type="text"
-        value="组"
-        onfocus="if (value =='组'){value =''}"
-        onblur="if (value ==''){value='组'}"
-      />
-     
+      <input id="val" type="text" placeholder="组" />
+      <!-- onfocus="if (value =='组'){value =''}"
+        onblur="if (value ==''){value='组'}" -->
     </div>
     <div class="btn">
       <button id="btn1">提交</button>
@@ -387,15 +391,16 @@
         <li id="m98">0XX8</li>
         <li id="m99">0XX9</li>
       </ul>
-
-
     </div>
 
     <!-- 大于200组的号码 -->
-    <div  class="show">
+    <div class="show2">
+      <div class="than">
+        <input id ="iptThan" type="number" placeholder="输入大于0的数"  />
 
-        <div id="than200"></div>
-
+        <button id="btn6" value="组">筛选</button>
+      </div>
+      <div id="than200"></div>
     </div>
 
     <div class="ps">
@@ -443,6 +448,9 @@
 
       //获取切换按钮
       var btn5 = document.getElementById("btn5");
+
+      //获取筛选按钮
+      var btn6 = document.getElementById("btn6");
 
       //获取ul元素
       var ul = document.getElementsByTagName("ul");
@@ -545,10 +553,40 @@
 
         let total = document.getElementById("total");
 
-        let than200 = {
-            total:0,
-            li:[]
+      
+        for (var i = 0; i < 10; i++) {
+          for (let j = 0; j < 10; j++) {
+            var str = i + "XX" + j;
+            var obj = document.getElementById("m" + i + j);
+            var value = localStorage.getItem(str);
+            var num = parseInt(value);
+
+            if (num >= 0) {
+              totalVale += num;
+              obj.innerHTML = str + "<br/>" + "<span>" + value + "</span>";
+            } else obj.innerHTML = str + "<br/>" + "<span>" + 0 + "</span>";
+          }
         }
+
+      
+         total.innerHTML = "<strong>总数：</strong>" + totalVale;
+      }
+
+      btn6.onclick = function(){
+        
+        let iptThan = document.getElementById("iptThan")
+        if(iptThan.value>=0){
+          reShow2(iptThan.value)
+        }
+
+      }
+
+       function reShow2(than2) {
+        var totalVale = 0;
+
+        let total = document.getElementById("total");
+
+        let than200 = []
 
         for (var i = 0; i < 10; i++) {
           for (let j = 0; j < 10; j++) {
@@ -557,30 +595,26 @@
             var value = localStorage.getItem(str);
             var num = parseInt(value);
 
-            if (num >= 200) {
+            if (num > than2) {
               obj.style.backgroundColor = "rgb(228, 104, 100)";
 
-              let liStr = str+" = "+num
+              let liStr = str + " => " + (num-than2);
 
-              than200.li.push(liStr)
-              than200.total += num
-
-
+              than200.push(liStr);
+              
             } else obj.style.backgroundColor = bg;
-            if (num >= 0) {
-              totalVale += num;
-              obj.innerHTML = str + "<br/>" + "<span>" + value + "</span>";
-            } else obj.innerHTML = str + "<br/>" + "<span>" + 0 + "</span>";
+            
           }
         }
 
-        let than200Obj = document.getElementById("than200")
+        let than200Obj = document.getElementById("than200");
 
-        than200Obj.innerHTML ="大于200组总数: "+ than200.total +"<br/>"+than200.li
-
-
-
-        total.innerHTML = "<strong>总数：</strong>" + totalVale;
+        if(than200.length>0)
+        than200Obj.innerHTML =
+          "大于"+than2+"组的号码(不包括"+than2+"): " + "<br/>" + than200;
+else than200Obj.innerHTML =
+          "大于"+than2+"组的号码(不包括"+than2+"): 空空如也！";
+        
       }
 
       //重新输入
