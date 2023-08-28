@@ -8,6 +8,11 @@
     <link rel="icon" href="logo/ic.png" />
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <!-- 引入样式 -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
     <style>
       * {
         margin: 0;
@@ -241,7 +246,7 @@
       <p id="login"></p>
     </div>
     <div class="ipt">
-      <input id="start" type="text" placeholder="头"  />
+      <input id="start" type="text" placeholder="头" />
 
       <input type="text" id="end" placeholder="尾" />
 
@@ -412,8 +417,11 @@
         >头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。
       </p>
     </div>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <script>
+      
       // var logined = localStorage.getItem('logined')
       // var login = document.getElementById("login")
 
@@ -500,7 +508,7 @@
 
           reShow();
           deSelect();
-          alert("提交成功!");
+          // alert("提交成功!");
         } else alert("输入错误!");
       };
 
@@ -529,7 +537,7 @@
       //刷新数据
       btn2.onclick = function () {
         reShow();
-        alert("刷新成功!");
+        // alert("刷新成功!");
       };
 
       //重新输入
@@ -622,13 +630,13 @@
             than2 +
             "组的号码(不包括" +
             than2 +
-            ")如下，多出来的总数：" +than +
+            ")如下，多出来的总数：" +
+            than +
             "<br/>" +
             than200Str;
         } else
           than200Obj.innerHTML =
             "大于" + than2 + "组的号码(不包括" + than2 + "): 空空如也！";
-        
       }
 
       //重新输入
