@@ -241,7 +241,7 @@
       <p id="login"></p>
     </div>
     <div class="ipt">
-      <input id="start" type="text" placeholder="头" />
+      <input id="start" type="text" placeholder="头"  />
 
       <input type="text" id="end" placeholder="尾" />
 
@@ -468,8 +468,8 @@
 
       //输入数据
       btn1.onclick = function () {
-        var reg1 = /[0-9]{1,}/;
-        var reg2 = /[1-9][0-9]{0,}/;
+        var reg1 = /^[0-9]{1,}$/;
+        var reg2 = /^[1-9][0-9]{0,}$/;
         var s = reg1.test(iptS.value),
           e = reg1.test(iptE.value),
           g = reg2.test(gVal.value);
@@ -633,9 +633,9 @@
 
       //重新输入
       function deSelect() {
-        gVal.value = "组";
-        iptE.value = "尾";
-        iptS.value = "头";
+        gVal.value = "";
+        iptE.value = "";
+        iptS.value = "";
       }
     </script>
     <!-- <script src="js/jquery.min.js"></script>
