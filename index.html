@@ -1,433 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>统计页</title>
-    <link rel="icon" href="logo/ic.png" />
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-    <!-- <link rel="stylesheet" href="./css/style.css"> -->
-    <!-- 引入样式 -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
-    />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
 
-      body {
-        background: rgb(226, 240, 232);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>统计页</title>
+  <link rel="icon" href="logo/ic.png" />
+  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
 
-      /* input {
+    body {
+      background: rgb(226, 240, 232);
+    }
+
+    /* input {
             border: rgb(65, 197, 180) solid 1px;
             border-radius: 6px;
             height: 30px;
             width: 400px;
             padding-left:10px; 
         } */
-      input {
-        flex-grow: 1;
-        margin: 0px 5px;
+    input {
+      flex-grow: 1;
+      margin: 0px 5px;
 
-        /* border: 1px solid #ccc; */
-        padding: 4px 0px;
-        border-radius: 7px;
-        padding-left: 5px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        -webkit-transition: border-color ease-in-out 0.15s,
-          -webkit-box-shadow ease-in-out 0.15s;
-        -o-transition: border-color ease-in-out 0.15s,
-          box-shadow ease-in-out 0.15s;
-        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-      }
+      /* border: 1px solid #ccc; */
+      padding: 4px 0px;
+      border-radius: 7px;
+      padding-left: 5px;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+      -webkit-transition: border-color ease-in-out 0.15s,
+        -webkit-box-shadow ease-in-out 0.15s;
+      -o-transition: border-color ease-in-out 0.15s,
+        box-shadow ease-in-out 0.15s;
+      transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
 
-      input:focus {
-        border-color: #66afe9;
-        outline: 0;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-          0 0 8px rgba(102, 175, 233, 0.6);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-          0 0 8px rgba(46, 110, 230, 0.6);
-      }
+    input:focus {
+      border-color: #66afe9;
+      outline: 0;
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 175, 233, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(46, 110, 230, 0.6);
+    }
 
-      input {
-        border: rgb(65, 197, 180) solid 1px;
-        border-radius: 3px;
-        height: 25px;
-        width: 400px;
-        padding-left: 10px;
+    input {
+      border: rgb(65, 197, 180) solid 1px;
+      border-radius: 3px;
+      height: 25px;
+      width: 400px;
+      padding-left: 10px;
+    }
+
+    .btn button {
+      padding: 5px;
+      border: rgb(17, 206, 231) solid 0px;
+
+      background-color: #a5eba2;
+      display: block;
+      flex-grow: 1;
+      margin: 0 5px;
+      height: 35px;
+      border-radius: 3px;
+    }
+
+    button {
+      padding: 5px;
+      border: rgb(17, 206, 231) solid 0px;
+
+      background-color: #a5eba2;
+      /* display: block; */
+      /* flex-grow: 1; */
+      margin: 0 5px;
+      height: 35px;
+      border-radius: 3px;
+    }
+
+    .btn {
+      display: flex;
+      width: 50%;
+      margin: 10px auto;
+      /* background-color: #fff; */
+    }
+
+    @media screen and (max-width: 768px) {
+      .btn {
+        width: 90%;
       }
 
       .btn button {
-        padding: 5px;
-        border: rgb(17, 206, 231) solid 0px;
-
-        background-color: #a5eba2;
-        display: block;
-        flex-grow: 1;
-        margin: 0 5px;
-        height: 35px;
-        border-radius: 3px;
-      }
-      button {
-        padding: 5px;
-        border: rgb(17, 206, 231) solid 0px;
-
-        background-color: #a5eba2;
-        /* display: block; */
-        /* flex-grow: 1; */
-        margin: 0 5px;
-        height: 35px;
-        border-radius: 3px;
-      }
-
-      .btn {
-        display: flex;
         width: 50%;
-        margin: 10px auto;
-        /* background-color: #fff; */
       }
 
-      @media screen and (max-width: 768px) {
-        .btn {
-          width: 90%;
-        }
-
-        .btn button {
-          width: 50%;
-        }
-
-        .ipt input {
-          width: 93.5%;
-        }
+      .ipt input {
+        width: 93.5%;
       }
+    }
 
-      #btn4:hover {
-        background-color: rgb(255, 0, 0);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
+    #btn4:hover {
+      background-color: rgb(255, 0, 0);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
-      #btn1:hover,
-      #btn2:hover,
-      #btn3:hover,
-      #btn5:hover,
-      #btn6:hover {
-        background-color: rgb(216, 236, 99);
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
+    #btn1:hover,
+    #btn2:hover,
+    #btn3:hover,
+    #btn5:hover,
+    #btn6:hover {
+      background-color: rgb(216, 236, 99);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
+    .show {
+      display: flex;
+
+      margin: 10px auto;
+      width: 90%;
+      /* background: rgb(180, 233, 202); */
+    }
+
+    .show2 {
+      /* display: flex; */
+
+      margin: 10px auto;
+      width: 90%;
+      /* background: rgb(180, 233, 202); */
+    }
+
+    @media screen and (max-width: 768px) {
       .show {
-        display: flex;
-
-        margin: 10px auto;
-        width: 90%;
-        /* background: rgb(180, 233, 202); */
+        flex-wrap: wrap;
       }
-      .show2 {
-        /* display: flex; */
+    }
 
-        margin: 10px auto;
-        width: 90%;
-        /* background: rgb(180, 233, 202); */
-      }
+    li {
+      list-style: none;
 
-      @media screen and (max-width: 768px) {
-        .show {
-          flex-wrap: wrap;
-        }
-      }
+      height: 50px;
+      line-height: 25px;
+      background-color: #fff;
+      text-align: center;
+      /* border: rgb(181, 209, 162) solid 1px; */
+      border-radius: 6px;
+      color: rgb(14, 12, 11);
+      margin: 10px 5px;
+    }
 
-      li {
-        list-style: none;
+    li:hover {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
-        height: 50px;
-        line-height: 25px;
-        background-color: #fff;
-        text-align: center;
-        /* border: rgb(181, 209, 162) solid 1px; */
-        border-radius: 6px;
-        color: rgb(14, 12, 11);
-        margin: 10px 5px;
-      }
+    span {
+      color: rgb(10, 202, 26);
+    }
 
-      li:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
+    .ipt {
+      margin-top: 20px;
+      width: 60%;
+      margin: 20px auto;
+      padding: 0px 9px;
+      text-align: center;
+      display: flex;
 
-      span {
-        color: rgb(10, 202, 26);
-      }
+      /* //background: rgb(180, 233, 202); */
+    }
 
-      .ipt {
-        margin-top: 20px;
-        width: 50%;
-        margin: 20px auto;
-        padding: 0px 9px;
-        text-align: center;
-        display: flex;
+    ul {
+      width: 20%;
+      flex-grow: 1;
+    }
 
-        /* //background: rgb(180, 233, 202); */
-      }
+    .ps strong,
+    .ps1 strong {
+      color: rgb(236, 76, 76) !important;
+    }
 
-      ul {
-        width: 20%;
-        flex-grow: 1;
-      }
+    .ps {
+      text-align: justify;
+      margin: 0 auto;
+      width: 90%;
+      /* background-color: #fff; */
+      margin-bottom: 100px;
+    }
 
-      .ps strong,
-      .ps1 strong {
-        color: rgb(236, 76, 76) !important;
-      }
+    .ps p {
+      padding: 0 5px;
+    }
 
-      .ps {
-        text-align: justify;
-        margin: 0 auto;
-        width: 90%;
-        /* background-color: #fff; */
-        margin-bottom: 100px;
-      }
+    ul .liHead {
+      line-height: 50px;
+      color: rgb(10, 10, 10);
+      font-size: 20px;
+      background-color: rgb(165, 241, 149);
+      /* background: rgb(228, 104, 100); */
+    }
 
-      .ps p {
-        padding: 0 5px;
-      }
+    .head {
+      width: 90%;
+      padding-right: 7.5px;
+      text-align: right;
+      /* background-color: #66afe9; */
+      margin: 0 auto;
+      margin-top: 15px;
+    }
 
-      ul .liHead {
-        line-height: 50px;
-        color: rgb(10, 10, 10);
-        font-size: 20px;
-        background-color: rgb(165, 241, 149);
-        /* background: rgb(228, 104, 100); */
-      }
+    .head a {
+      text-decoration: none;
+      color: rgb(19, 182, 204);
+    }
 
-      .head {
-        width: 90%;
-        padding-right: 7.5px;
-        text-align: right;
-        /* background-color: #66afe9; */
-        margin: 0 auto;
-        margin-top: 15px;
-      }
+    .head a:hover {
+      color: rgb(207, 42, 42);
+    }
 
-      .head a {
-        text-decoration: none;
-        color: rgb(19, 182, 204);
-      }
+    .than200 {
+      margin: 0 5px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 0 0 5px 5px;
+    }
 
-      .head a:hover {
-        color: rgb(207, 42, 42);
-      }
+    .than {
+      margin: 0 5px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 5px 5px 0 0;
+    }
+  </style>
+</head>
 
-      .than200 {
-        margin: 0 5px;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 0 0 5px 5px;
-      }
-      .than {
-        margin: 0 5px;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 5px 5px 0 0;
-      }
-    </style>
-  </head>
+<body>
+  <div class="head">
+    <p id="login"></p>
+  </div>
+  <div class="ipt">
+    <input id="start" type="text" placeholder="头" />
 
-  <body>
-    <div class="head">
-      <p id="login"></p>
-    </div>
-    <div class="ipt">
-      <input id="start" type="text" placeholder="头" />
+    <input type="text" id="end" placeholder="尾" />
 
-      <input type="text" id="end" placeholder="尾" />
-
-      <input id="val" type="text" placeholder="组" />
-      <!-- onfocus="if (value =='组'){value =''}"
+    <input id="val" type="text" placeholder="组" /><input disabled value='正在输入...' id="message"> </input>
+    <!-- onfocus="if (value =='组'){value =''}"
         onblur="if (value ==''){value='组'}" -->
-    </div>
-    <div class="btn">
-      <button id="btn1">提交</button>
-      <button id="btn2">刷新</button>
-      <button id="btn3">重置</button>
-      <button id="btn4">清除</button>
-      <button id="btn5">切换</button>
-      <button id="total">总数：</button>
-    </div>
+  </div>
 
-    <div class="show">
-      <ul class="h0">
-        <li class="liHead">0头</li>
-        <li id="m00">0XX0</li>
-        <li id="m01">0XX1</li>
-        <li id="m02">0XX2</li>
-        <li id="m03">0XX3</li>
-        <li id="m04">0XX4</li>
-        <li id="m05">0XX5</li>
-        <li id="m06">0XX6</li>
-        <li id="m07">0XX7</li>
-        <li id="m08">0XX8</li>
-        <li id="m09">0XX9</li>
-      </ul>
-      <ul class="h1">
-        <li class="liHead">1头</li>
-        <li id="m10">0XX0</li>
-        <li id="m11">1XX1</li>
-        <li id="m12">0XX2</li>
-        <li id="m13">0XX3</li>
-        <li id="m14">0XX4</li>
-        <li id="m15">0XX5</li>
-        <li id="m16">0XX6</li>
-        <li id="m17">0XX7</li>
-        <li id="m18">0XX8</li>
-        <li id="m19">0XX9</li>
-      </ul>
-      <ul class="h2">
-        <li class="liHead">2头</li>
-        <li id="m20">0XX0</li>
-        <li id="m21">0XX1</li>
-        <li id="m22">0XX2</li>
-        <li id="m23">0XX3</li>
-        <li id="m24">0XX4</li>
-        <li id="m25">0XX5</li>
-        <li id="m26">0XX6</li>
-        <li id="m27">0XX7</li>
-        <li id="m28">0XX8</li>
-        <li id="m29">0XX9</li>
-      </ul>
-      <ul class="h3">
-        <li class="liHead">3头</li>
-        <li id="m30">0XX0</li>
-        <li id="m31">0XX1</li>
-        <li id="m32">0XX2</li>
-        <li id="m33">0XX3</li>
-        <li id="m34">0XX4</li>
-        <li id="m35">0XX5</li>
-        <li id="m36">0XX6</li>
-        <li id="m37">0XX7</li>
-        <li id="m38">0XX8</li>
-        <li id="m39">0XX9</li>
-      </ul>
-      <ul class="h4">
-        <li class="liHead">4头</li>
-        <li id="m40">0XX0</li>
-        <li id="m41">0XX1</li>
-        <li id="m42">0XX2</li>
-        <li id="m43">0XX3</li>
-        <li id="m44">0XX4</li>
-        <li id="m45">0XX5</li>
-        <li id="m46">0XX6</li>
-        <li id="m47">0XX7</li>
-        <li id="m48">0XX8</li>
-        <li id="m49">0XX9</li>
-      </ul>
-      <!-- </div >
+  <div class="btn">
+    <button id="btn1">提交</button>
+    <button id="btn2">刷新</button>
+    <button id="btn3">重置</button>
+    <button id="btn4">清除</button>
+    <button id="btn5">切换</button>
+    <button id="total">总数：</button>
+
+  </div>
+
+  <div class="show">
+    <ul class="h0">
+      <li class="liHead">0头</li>
+      <li id="m00">0XX0</li>
+      <li id="m01">0XX1</li>
+      <li id="m02">0XX2</li>
+      <li id="m03">0XX3</li>
+      <li id="m04">0XX4</li>
+      <li id="m05">0XX5</li>
+      <li id="m06">0XX6</li>
+      <li id="m07">0XX7</li>
+      <li id="m08">0XX8</li>
+      <li id="m09">0XX9</li>
+    </ul>
+    <ul class="h1">
+      <li class="liHead">1头</li>
+      <li id="m10">0XX0</li>
+      <li id="m11">1XX1</li>
+      <li id="m12">0XX2</li>
+      <li id="m13">0XX3</li>
+      <li id="m14">0XX4</li>
+      <li id="m15">0XX5</li>
+      <li id="m16">0XX6</li>
+      <li id="m17">0XX7</li>
+      <li id="m18">0XX8</li>
+      <li id="m19">0XX9</li>
+    </ul>
+    <ul class="h2">
+      <li class="liHead">2头</li>
+      <li id="m20">0XX0</li>
+      <li id="m21">0XX1</li>
+      <li id="m22">0XX2</li>
+      <li id="m23">0XX3</li>
+      <li id="m24">0XX4</li>
+      <li id="m25">0XX5</li>
+      <li id="m26">0XX6</li>
+      <li id="m27">0XX7</li>
+      <li id="m28">0XX8</li>
+      <li id="m29">0XX9</li>
+    </ul>
+    <ul class="h3">
+      <li class="liHead">3头</li>
+      <li id="m30">0XX0</li>
+      <li id="m31">0XX1</li>
+      <li id="m32">0XX2</li>
+      <li id="m33">0XX3</li>
+      <li id="m34">0XX4</li>
+      <li id="m35">0XX5</li>
+      <li id="m36">0XX6</li>
+      <li id="m37">0XX7</li>
+      <li id="m38">0XX8</li>
+      <li id="m39">0XX9</li>
+    </ul>
+    <ul class="h4">
+      <li class="liHead">4头</li>
+      <li id="m40">0XX0</li>
+      <li id="m41">0XX1</li>
+      <li id="m42">0XX2</li>
+      <li id="m43">0XX3</li>
+      <li id="m44">0XX4</li>
+      <li id="m45">0XX5</li>
+      <li id="m46">0XX6</li>
+      <li id="m47">0XX7</li>
+      <li id="m48">0XX8</li>
+      <li id="m49">0XX9</li>
+    </ul>
+    <!-- </div >
     <div class="show"> -->
-      <ul class="h5">
-        <li class="liHead">5头</li>
-        <li id="m50">0XX0</li>
-        <li id="m51">0XX1</li>
-        <li id="m52">0XX2</li>
-        <li id="m53">0XX3</li>
-        <li id="m54">0XX4</li>
-        <li id="m55">0XX5</li>
-        <li id="m56">0XX6</li>
-        <li id="m57">0XX7</li>
-        <li id="m58">0XX8</li>
-        <li id="m59">0XX9</li>
-      </ul>
-      <ul class="h6">
-        <li class="liHead">6头</li>
-        <li id="m60">0XX0</li>
-        <li id="m61">0XX1</li>
-        <li id="m62">0XX2</li>
-        <li id="m63">0XX3</li>
-        <li id="m64">0XX4</li>
-        <li id="m65">0XX5</li>
-        <li id="m66">0XX6</li>
-        <li id="m67">0XX7</li>
-        <li id="m68">0XX8</li>
-        <li id="m69">0XX9</li>
-      </ul>
-      <ul class="h7">
-        <li class="liHead">7头</li>
-        <li id="m70">0XX0</li>
-        <li id="m71">0XX1</li>
-        <li id="m72">0XX2</li>
-        <li id="m73">0XX3</li>
-        <li id="m74">0XX4</li>
-        <li id="m75">0XX5</li>
-        <li id="m76">0XX6</li>
-        <li id="m77">0XX7</li>
-        <li id="m78">0XX8</li>
-        <li id="m79">0XX9</li>
-      </ul>
-      <ul class="h8">
-        <li class="liHead">8头</li>
-        <li id="m80">0XX0</li>
-        <li id="m81">0XX1</li>
-        <li id="m82">0XX2</li>
-        <li id="m83">0XX3</li>
-        <li id="m84">0XX4</li>
-        <li id="m85">0XX5</li>
-        <li id="m86">0XX6</li>
-        <li id="m87">0XX7</li>
-        <li id="m88">0XX8</li>
-        <li id="m89">0XX9</li>
-      </ul>
-      <ul class="h9">
-        <li class="liHead">9头</li>
-        <li id="m90">0XX0</li>
-        <li id="m91">0XX1</li>
-        <li id="m92">0XX2</li>
-        <li id="m93">0XX3</li>
-        <li id="m94">0XX4</li>
-        <li id="m95">0XX5</li>
-        <li id="m96">0XX6</li>
-        <li id="m97">0XX7</li>
-        <li id="m98">0XX8</li>
-        <li id="m99">0XX9</li>
-      </ul>
+    <ul class="h5">
+      <li class="liHead">5头</li>
+      <li id="m50">0XX0</li>
+      <li id="m51">0XX1</li>
+      <li id="m52">0XX2</li>
+      <li id="m53">0XX3</li>
+      <li id="m54">0XX4</li>
+      <li id="m55">0XX5</li>
+      <li id="m56">0XX6</li>
+      <li id="m57">0XX7</li>
+      <li id="m58">0XX8</li>
+      <li id="m59">0XX9</li>
+    </ul>
+    <ul class="h6">
+      <li class="liHead">6头</li>
+      <li id="m60">0XX0</li>
+      <li id="m61">0XX1</li>
+      <li id="m62">0XX2</li>
+      <li id="m63">0XX3</li>
+      <li id="m64">0XX4</li>
+      <li id="m65">0XX5</li>
+      <li id="m66">0XX6</li>
+      <li id="m67">0XX7</li>
+      <li id="m68">0XX8</li>
+      <li id="m69">0XX9</li>
+    </ul>
+    <ul class="h7">
+      <li class="liHead">7头</li>
+      <li id="m70">0XX0</li>
+      <li id="m71">0XX1</li>
+      <li id="m72">0XX2</li>
+      <li id="m73">0XX3</li>
+      <li id="m74">0XX4</li>
+      <li id="m75">0XX5</li>
+      <li id="m76">0XX6</li>
+      <li id="m77">0XX7</li>
+      <li id="m78">0XX8</li>
+      <li id="m79">0XX9</li>
+    </ul>
+    <ul class="h8">
+      <li class="liHead">8头</li>
+      <li id="m80">0XX0</li>
+      <li id="m81">0XX1</li>
+      <li id="m82">0XX2</li>
+      <li id="m83">0XX3</li>
+      <li id="m84">0XX4</li>
+      <li id="m85">0XX5</li>
+      <li id="m86">0XX6</li>
+      <li id="m87">0XX7</li>
+      <li id="m88">0XX8</li>
+      <li id="m89">0XX9</li>
+    </ul>
+    <ul class="h9">
+      <li class="liHead">9头</li>
+      <li id="m90">0XX0</li>
+      <li id="m91">0XX1</li>
+      <li id="m92">0XX2</li>
+      <li id="m93">0XX3</li>
+      <li id="m94">0XX4</li>
+      <li id="m95">0XX5</li>
+      <li id="m96">0XX6</li>
+      <li id="m97">0XX7</li>
+      <li id="m98">0XX8</li>
+      <li id="m99">0XX9</li>
+    </ul>
+  </div>
+
+  <!-- 大于200组的号码 -->
+  <div class="show2">
+    <div class="than">
+      <input id="iptThan" type="number" placeholder="输入大于0的数" />
+
+      <button id="btn6" value="组">筛选</button>
     </div>
-
-    <!-- 大于200组的号码 -->
-    <div class="show2">
-      <div class="than">
-        <input id="iptThan" type="number" placeholder="输入大于0的数" />
-
-        <button id="btn6" value="组">筛选</button>
-      </div>
-      <div class="than200">
-        <div id="than200"></div>
-        <div id="total2"></div>
-      </div>
+    <div class="than200">
+      <div id="than200"></div>
+      <div id="total2"></div>
     </div>
+  </div>
 
-    <div class="ps">
-      <p>
-        <strong>使用说明：</strong
-        >头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。
-      </p>
-    </div>
+  <div class="ps">
+    <p>
+      <strong>使用说明：</strong>头尾不能输入重复数字，而且只能输入数字；组数不能以0开头；前一天的数据只能显示或清除，想要存入当天数据，则先清除前一天的数据。
+    </p>
+  </div>
 
-    upload test 1
-    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  upload test 1
+  <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-    <script>
-      // var logined = localStorage.getItem('logined')
-      // var login = document.getElementById("login")
+  <script>
+    // var logined = localStorage.getItem('logined')
+    // var login = document.getElementById("login")
 
-      window.onload = function(){
-
+    window.onload = function () {
       var bg = "#fff";
       //刷新数据
       reShow();
@@ -471,6 +472,10 @@
       //获取ul元素
       var ul = document.getElementsByTagName("ul");
 
+      let message = document.getElementById("message");
+
+      message.style.fontSize = '18px'
+
       //判断是否有旧数据
       if (now != day) {
         btn1.disabled = true;
@@ -482,12 +487,12 @@
       //输入数据
       function genarate() {
         var reg1 = /^[0-9]{1,}$/;
-        var reg2 = /^[1-9][0-9]{0,}$/;
+
+        var reg3 = /^-?\d+(\.\d+)?$/;
         var s = reg1.test(iptS.value),
-          e = reg1.test(iptE.value);
-        // ,
-        // g = reg2.test(gVal.value);
-        if (s && e) {
+          e = reg1.test(iptE.value),
+          g = reg3.test(gVal.value);
+        if (s && e && g) {
           var iptStart = iptS.value.split("");
           var iptEnd = iptE.value.split("");
           //alert(typeof iptEnd[0])
@@ -512,38 +517,65 @@
           }
           //btn1.disabled = true
 
+          message.value = '下注成功!'
+          message.style.color = 'green'
+
+          setTimeout(() => {
+            message.value = '正在输入...'
+            message.style.color = '#000'
+            // message.style.fontSize = '20px'
+          }, 1500)
+
           reShow();
           deSelect();
-          // alert("提交成功!");
 
-          //   gVal.value = "";
-          // iptE.value = "";
-          // iptS.value = "";
-
-          // iptS.focus();
         } else {
-          alert("输入错误!");
+
+          message.value = '输入错误!'
+          message.style.color = 'red'
+
+          setTimeout(() => {
+            message.value = '正在输入...'
+            message.style.color = '#000'
+          }, 1500)
+
+          // alert("输入错误!");
           // iptS.focus();
         }
       }
 
       iptS.onkeyup = function (e) {
         let es = e || window.event; //标准化事件处理
-        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode == 16) {
+        if (
+          es.keyCode == 13 ||
+          es.keyCode == 32 ||
+          es.keyCode == 39 ||
+          es.keyCode == 16
+        ) {
           iptE.focus();
         }
       };
 
       iptE.onkeyup = function (e) {
         let es = e || window.event; //标准化事件处理
-        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode == 16) {
+        if (
+          es.keyCode == 13 ||
+          es.keyCode == 32 ||
+          es.keyCode == 39 ||
+          es.keyCode == 16
+        ) {
           gVal.focus();
         }
       };
 
       gVal.onkeyup = function (e) {
         let es = e || window.event; //标准化事件处理
-        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode ==16) {
+        if (
+          es.keyCode == 13 ||
+          es.keyCode == 32 ||
+          es.keyCode == 39 ||
+          es.keyCode == 16
+        ) {
           iptS.focus();
           genarate();
         }
@@ -689,9 +721,21 @@
         iptE.value = "";
         iptS.value = "";
       }
-    }
-    </script>
-    <!-- <script src="js/jquery.min.js"></script>
+
+      function showMessage() {
+        //  console.log( alert("这是一个提示框"))
+        // setTimeout(function () {
+        //   // var element = document.getElementById("message");
+        //   // element.style.display = "none";
+        //   alert.close()
+        // }, 1000);
+      }
+
+      showMessage();
+    };
+  </script>
+  <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
-  </body>
+</body>
+
 </html>
