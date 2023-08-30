@@ -421,9 +421,10 @@
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
     <script>
-      
       // var logined = localStorage.getItem('logined')
       // var login = document.getElementById("login")
+
+      window.onload = function(){
 
       var bg = "#fff";
       //刷新数据
@@ -438,6 +439,8 @@
 
       //头对象
       var iptS = document.getElementById("start");
+
+      iptS.focus();
 
       //尾对象
       var iptE = document.getElementById("end");
@@ -475,14 +478,14 @@
       //else btn4.disabled = true
 
       //输入数据
-      btn1.onclick = function () {
+      function genarate() {
         var reg1 = /^[0-9]{1,}$/;
         var reg2 = /^[1-9][0-9]{0,}$/;
         var s = reg1.test(iptS.value),
-          e = reg1.test(iptE.value)
-          // ,
-          // g = reg2.test(gVal.value);
-        if (s && e ) {
+          e = reg1.test(iptE.value);
+        // ,
+        // g = reg2.test(gVal.value);
+        if (s && e) {
           var iptStart = iptS.value.split("");
           var iptEnd = iptE.value.split("");
           //alert(typeof iptEnd[0])
@@ -511,12 +514,40 @@
           deSelect();
           // alert("提交成功!");
 
-        //   gVal.value = "";
-        // iptE.value = "";
-        // iptS.value = "";
+          //   gVal.value = "";
+          // iptE.value = "";
+          // iptS.value = "";
 
-        } else alert("输入错误!");
+          iptS.focus();
+        } else {
+          alert("输入错误!");
+          iptS.focus();
+        }
+      }
+
+      iptS.onkeyup = function (e) {
+        let es = e || window.event; //标准化事件处理
+        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode == 16) {
+          iptE.focus();
+        }
       };
+
+      iptE.onkeyup = function (e) {
+        let es = e || window.event; //标准化事件处理
+        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode == 16) {
+          gVal.focus();
+        }
+      };
+
+      gVal.onkeyup = function (e) {
+        let es = e || window.event; //标准化事件处理
+        if (es.keyCode == 13 || es.keyCode == 32 || es.keyCode == 39|| es.keyCode ==16) {
+          iptS.focus();
+          genarate();
+        }
+      };
+
+      btn1.onclick = genarate;
 
       //清除数据
       btn4.onclick = function () {
@@ -536,7 +567,10 @@
 
           //更新数据
           reShow();
+
           alert("清除成功!");
+
+          iptS.focus();
         }
       };
 
@@ -551,6 +585,8 @@
         deSelect();
         reShow();
         btn1.disabled = false;
+
+        iptS.focus();
       };
 
       //切换显示
@@ -651,6 +687,7 @@
         iptE.value = "";
         iptS.value = "";
       }
+    }
     </script>
     <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
